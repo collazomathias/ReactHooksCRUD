@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AddUserForm from './components/AddUserForm';
 import UserTable from './components/UserTable';
@@ -52,30 +52,30 @@ function App() {
 
     return (
         <div className='container'>
-            <h1>CRUD App with Hooks</h1>
-            <div className='flex-row'>
-                <div className='flex-large'>
+            <h1 className='title'>CRUD APP WITH HOOKS</h1>
+            <div className='box'>
+                <div className='left-hand-box'>
                     {
                         editing ? (
-                            <div>
-                                <h2>Edit user</h2>
+                            <Fragment>
+                                <h2 className='box-subtitle'>EDIT USER</h2>
                                 <EditUserForm 
                                     currentUser={currentUser} 
                                     updateUser={updateUser}
                                 />
-                            </div>
+                            </Fragment>
                         ) : (
-                            <div>    
-                                <h2>Add user</h2>
+                            <Fragment>    
+                                <h2 className='box-subtitle'>ADD USER</h2>
                                 <AddUserForm 
                                     addUser={addUser}
                                 />
-                            </div>
+                            </Fragment>
                         )
                     }
                 </div>
-                <div className='flex-large'>
-                    <h2>View users</h2>
+                <div className='right-hand-box'>
+                    <h2 className='box-subtitle'>View users</h2>
                     <UserTable 
                         users={users} 
                         deleteUser={deleteUser} 
